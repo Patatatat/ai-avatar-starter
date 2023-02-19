@@ -35,36 +35,6 @@ const Home = () => {
       setRetry(0);
     }
 
-    const sleep = (ms) => {
-      return new Promise((resolve) => {
-        setTimeout(resolve, ms);
-      });
-    };
-
-    useEffect(() => {
-      const runRetry = async () => {
-        if (retryCount === 0) {
-          console.log(
-            `Model still loading after ${maxRetries} retries. Try request again in 5 minutes.`
-          );
-          setRetryCount(maxRetries);
-          return;
-        }
-
-        console.log(`Trying again in ${retry} seconds.`);
-
-        await sleep(retry * 1000);
-
-        await generateAction();
-      };
-
-      if (retry === 0) {
-        return;
-      }
-
-      runRetry();
-    }, [retry]);
-
     const response = await fetch("./api/generate.js", {
       method: "POST",
       headers: {
@@ -88,6 +58,35 @@ const Home = () => {
     }
     setImg(data.image);
     setIsGenerating(false);
+
+    const sleep = (ms) => {
+      return new Promise((resolve) => {
+        setTimeout(resolve, ms);
+      });
+    };
+
+    useEffect(() => {
+      const runRetry = async () => {
+        if (retryCount === 0) {
+          console.log(
+            `Model still loading after ${maxRetries} retries. Try request again in 5 minutes.`
+          );
+          setRetryCount(maxRetries);
+          return;
+        }
+
+        console.log(`Trying again in ${retry} seconds.`);
+
+        await sleep(retry * 1000);
+        await generateAction();
+      };
+
+      if (retry === 0) {
+        return;
+      }
+
+      runRetry();
+    }, [retry]);
   };
 
   return (
