@@ -6,15 +6,20 @@ const Home = () => {
   return (
     <div className="root">
       <Head>
-        <title>AI Avatar Generator | buildspace</title>
+        <title>Epic avatar generator | buildspace</title>
       </Head>
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>your generator one-liner</h1>
+            <h1>Epic avatar generator</h1>
           </div>
           <div className="header-subtitle">
-            <h2>description of your generator</h2>
+            <h2>
+              Turn me into anyone you want! Make sure you refer to me as "andres" in the prompt
+            </h2>
+            <div className="prompt-container">
+              <input className="prompt-box" />
+            </div>
           </div>
         </div>
       </div>
