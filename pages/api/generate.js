@@ -1,18 +1,18 @@
 const bufferToBase64 = (buffer) => {
   let arr = new Uint8Array(buffer);
   const base64 = btoa(
-    arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
-  )
+    arr.reduce((data, byte) => data + String.fromCharCode(byte), "")
+  );
   return `data:image/png;base64,${base64}`;
 };
 
 const generateAction = async (req, res) => {
-  console.log("Received request");
-  
-  const input = JSON.parse(req.body).input;
+  console.log("Received request", {body: req.body} );
+
+  const input = JSON.parse(req.body).finalInput;
 
   const response = await fetch(
-    `https://huggingface.co/Patatatat/sd-1-5-andres`,
+    `https://api-inference.huggingface.co/models/Patatatat/sd-1-5-andres`,
     {
       headers: {
         Authorization: `Bearer ${process.env.HF_AUTH_KEY}`,
