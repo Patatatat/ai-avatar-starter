@@ -1,3 +1,5 @@
+let buffer = response.arrayBuffer();
+
 const bufferToBase64 = (buffer) => {
   let arr = new Uint8Array(buffer);
   const base64 = btoa(
