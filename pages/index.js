@@ -103,44 +103,44 @@ const Home = () => {
   return (
     <div className="root">
       <Head>
-        <title>Epic avatar generator | buildspace</title>
+        <title>Silly picture generator | buildspace</title>
       </Head>
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>Epic avatar generator</h1>
+            <h1>Silly picture generator</h1>
           </div>
           <div className="header-subtitle">
             <h2>
               Turn me into anyone you want! Make sure you refer to me as
-              "andres" in the prompt
+              "abraza" in the prompt
             </h2>
-            <div className="prompt-container">
-              <input className="prompt-box" value={input} onChange={onChange} />
-              <div className="prompt-buttons">
-                {/* Tweak classNames to change classes */}
-                <a
-                  className={
-                    isGenerating ? "generate-button loading" : "generate-button"
-                  }
-                  onClick={generateAction}
-                >
-                  {/* Tweak to show a loading indicator */}
-                  <div className="generate">
-                    {isGenerating ? (
-                      <span className="loader"></span>
-                    ) : (
-                      <p>Generate</p>
-                    )}
-                  </div>
-                </a>
-              </div>
+          </div>
+          <div className="prompt-container">
+            <input className="prompt-box" value={input} onChange={onChange} />
+            <div className="prompt-buttons">
+              <a
+                className={
+                  isGenerating ? "generate-button loading" : "generate-button"
+                }
+                onClick={generateAction}
+              >
+                <div className="generate">
+                  {isGenerating ? (
+                    <span className="loader"></span>
+                  ) : (
+                    <p>Generate</p>
+                  )}
+                </div>
+              </a>
             </div>
           </div>
         </div>
+        {/* Add output container */}
         {img && (
           <div className="output-content">
             <Image src={img} width={512} height={512} alt={finalPrompt} />
+            {/* Add prompt here */}
             <p>{finalPrompt}</p>
           </div>
         )}
