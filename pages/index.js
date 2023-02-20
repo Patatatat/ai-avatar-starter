@@ -42,7 +42,7 @@ const Home = () => {
 
     const finalInput = input.replace(/raza/gi, "abraza");
 
-    const response = await fetch("/api/generate", {
+    const response = await fetch("./api/generate.js", {
       method: "POST",
       headers: {
         "Content-Type": "image/jpeg",
