@@ -25,6 +25,8 @@ const generateAction = async (req, res) => {
     }
   );
 
+  
+
   if (response.ok) {
     const buffer = await response.arrayBuffer();
     const base64 = bufferToBase64(buffer);
