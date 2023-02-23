@@ -108,12 +108,12 @@ const Home = () => {
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>Epic avatar generator</h1>
+            <h1>😎 Epic avatar generator 😎</h1>
           </div>
           <div className="header-subtitle">
             <h2>
-              Turn me into anyone you want! Make sure you refer to me as
-              "andres" in the prompt
+              Turn me into anyone you want! 🤪 Make sure you refer to me as
+              "andres" in the prompt 🙃
             </h2>
             <div className="prompt-container">
               <input className="prompt-box" value={input} onChange={onChange} />
